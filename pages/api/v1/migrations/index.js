@@ -28,11 +28,9 @@ export default async function migrations(request, response) {
     });
     await dbClient.end();
 
-    if (migratedMigrations.length > 0) {
-      return response.status(201).json(migratedMigrations);
-    }
+    const statusCode = migratedMigrations.length > 0 ? 201 : 200;
 
-    return response.status(200).json(migratedMigrations);
+    return response.status(statusCode).json(migratedMigrations);
   }
 
   return response.status(405).end(); // Method not allowed
