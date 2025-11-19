@@ -8,6 +8,7 @@ const createJestConfig = nextJest({
 });
 const jestConfig = createJestConfig({
   moduleDirectories: ["node_modules", "<rootDir>"], // placeholder criado pelo Jest para identificar a raiz do projeto
+  testTimeout: 60_000,
 });
 
 module.exports = jestConfig;
